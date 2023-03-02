@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { flexAlignCenter, flexCenter,ModalBackground } from "styles/common";
 
-function TodoFormModal(){
+function TodoFormModal({showToastMessage}){
+//on/handle이 붙으면 이벤트 담당 함수이다
+
+  const onClickAddtodoBtn = (e) =>{
+    e.preventDefault();
+    showToastMessage();
+  }
+
     return(
         <S.Wrapper>
             <S.Form>
@@ -13,7 +20,7 @@ function TodoFormModal(){
                     <input placeholder="제목을 입력하세요"/>
                     <textarea placeholder="내용을 입력하세요"></textarea>
                 </S.Content>
-                <S.Button>ADD</S.Button>
+                <S.Button onClick={onClickAddtodoBtn}>ADD</S.Button>
             </S.Form>
         </S.Wrapper>
     );
